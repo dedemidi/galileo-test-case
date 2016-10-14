@@ -45,6 +45,12 @@ io.on('connection', function(socket){
 function detect_button(){
     state = btn.read();
     io.emit('button state', state);
+    if(state == 0){
+        led.write(1);
+       }
+    else{
+    led.write(0);
+    }
     setTimeout(detect_button,100); // let's do it again after 1/10 second
 }
 detect_button(); // execute the function
