@@ -44,6 +44,8 @@ io.on('connection', function(socket){
 // function to detect btn state and send it to every clients
 function detect_button(){
     state = btn.read();
+    //penambahan led.write(1) untuk menyalakan lampu, ketika terdeteksi button ditekan.
+    led.write(1);
     io.emit('button state', state);
     setTimeout(detect_button,100); // let's do it again after 1/10 second
 }
